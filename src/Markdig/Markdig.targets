@@ -8,7 +8,7 @@
     <Authors>Alexandre Mutel</Authors>
     <!-- Markdig.Wpf still supports net452, a target still supported by by Microsoft until January 10, 2023 -->
     <!-- see: https://github.com/xoofx/markdig/pull/466 -->
-    <TargetFrameworks>net452;netstandard2.0;netstandard2.1;netcoreapp2.1;netcoreapp3.1</TargetFrameworks>
+    <TargetFrameworks>net5.0-Windows</TargetFrameworks>
     <PackageTags>Markdown CommonMark md html md2html</PackageTags>
     <PackageReleaseNotes>https://github.com/lunet-io/markdig/blob/master/changelog.md</PackageReleaseNotes>
     <PackageLicenseExpression>BSD-2-Clause</PackageLicenseExpression>
@@ -22,24 +22,8 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
-    <PackageReference Include="System.Memory" Version="4.5.4" />
-  </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-    <PackageReference Include="System.Memory" Version="4.5.4" />
-  </ItemGroup>
-
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.1' ">
-    <DefineConstants>$(DefineConstants);NETCORE</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.1' ">
-    <DefineConstants>$(DefineConstants);NETCORE</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
+  
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net5.0-Windows' ">
     <DefineConstants>$(DefineConstants);NETCORE</DefineConstants>
   </PropertyGroup>
 
@@ -50,7 +34,6 @@
 
   <ItemGroup>
     <None Include="../../img/markdig.png" Pack="true" PackagePath="" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.*" PrivateAssets="All"/>
   </ItemGroup>
 
 </Project>
